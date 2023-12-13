@@ -16,18 +16,21 @@ function outerFunction() {
   innerFunction();
 }
 outerFunction();
+// => I am inner variable
+// => I am outer variable
+// => I am global variable
 
 / ********** CLOSURE Concept 1 ********** /;
 function getGreeter() {
   console.log("getGreeter is running");
-  let name = "Marie";
+  let name = "Hustler";
   console.log("getGreeter is finishing");
   return function () {
     console.log("Hi", name);
   };
 }
-let greeter = getGreeter();
-greeter();
+let greeter = getGreeter(); // => getGreeter is running // => getGreeter is finishing
+greeter(); // => Hi Hustler
 
 / ********** CLOSURE Concept 2 ********** /;
 function callCount() {
