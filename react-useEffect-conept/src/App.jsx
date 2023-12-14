@@ -1,49 +1,45 @@
 import { useEffect, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
+
+  // UseEffect returns undefined
+
   // useEffect with empty array as second argument will be called only once
-  useEffect(() => {
-    setName("Suneel");
-  }, []);
+  // only in frist render
+  let returnedbyEffect = useEffect(() => {
+    setName("Name Set");
+    console.log("UseEffect with empty array as second argument!");
+  }, [undefined]);
+  // console.log("returnedbyEffect", returnedbyEffect);
 
   // useEffect with no second argument will be called on every render
+  // on every render
   useEffect(() => {
     console.log("UseEffect with no argument!");
   });
 
   // useEffect with second argument as array will be called on every render if any of the value in array is changed
+  // on first render and when count is updated
   useEffect(() => {
     console.log("Count is updated");
+    console.log("UseEffect with array as second argument!");
   }, [count]);
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
+      <h1>UseEffect Concept</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   );
 }
 
 export default App;
+
+/***********
+ - use useLayoutEffect when you need to do DOM mutations before the browser paints.
+ ******/
