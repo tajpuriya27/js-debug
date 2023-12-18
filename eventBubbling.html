@@ -1,0 +1,50 @@
+<!-- 
+    Event bubbling is a way of event propagation in the HTML DOM API, 
+    when an event occurs in an element inside another element, and 
+    both elements have registered a handler for that event.
+
+ -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Event Bubbling Example</title>
+    <style>
+      div {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent">
+      Click me! (Parent)
+      <div id="child">Click me too! (Child)</div>
+    </div>
+
+    <script>
+      const parent = document.getElementById("parent");
+      const child = document.getElementById("child");
+
+      function handleClick(event) {
+        console.log(`Event triggered on: ${event.target.id}`);
+        console.log("one");
+        // Optional: display additional information about the event
+        // console.dir(event);
+      }
+
+      function handleClick1(event) {
+        console.log(`Event triggered on: ${event.target.id}`);
+        console.log("two");
+      }
+
+      parent.addEventListener("click", handleClick1);
+      child.addEventListener("click", handleClick);
+    </script>
+  </body>
+</html>
