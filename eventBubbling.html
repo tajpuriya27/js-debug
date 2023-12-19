@@ -43,8 +43,14 @@
         console.log("two");
       }
 
+      function handleMouseOver(event) {
+        // console.log(`Event triggered on: ${event.target.id}`);
+        console.log("three");
+      }
+
       parent.addEventListener("click", handleClick1);
-      child.addEventListener("click", handleClick);
+      child.addEventListener("mouseover", handleMouseOver);
+      // child.addEventListener("click", handleClick);
     </script>
   </body>
 </html>
