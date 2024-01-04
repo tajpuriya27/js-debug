@@ -14,6 +14,9 @@ console.log("Third--", typeof varToConvert);
 /* 
     Coercion is the process of converting one type of value to another type of value implicitly.
     This happens quite often in JavaScript because it is a dynamically typed language.
+    A dynamically typed language is a programming language where variables can hold values of any type 
+    and the type is checked at runtime. This means that you don't have to specify what type of data a variable 
+    will hold when you declare it.
 */
 const valuel = "5";
 const value2 = 9;
@@ -33,10 +36,11 @@ console.log("3 * false", 3 * false); // 0
 console.log("3 - true", 3 / true); // 3
 console.log("3 - false", 3 / false); // Infinity
 
-a = " " + 3;
-console.log("a::", a); // " 2"
-console.log("a:-", typeof a); // " 2"
-console.log("Length of a is", a.length); // 1
+// debugger;
+test_a = " " + 3;
+console.log("a::", test_a); // " 2"
+console.log("a:-", typeof test_a); // " 2"
+console.log("Length of a is", test_a.length); // 1
 
 // Equality operator
 /*
@@ -76,3 +80,16 @@ console.log(1 === "1"); // false
 console.log(1 === true); // false
 console.log(0 === false); // false
 console.log(NaN === NaN); // false
+
+// Werid JS functionality::
+/*
+    The == operator is used to compare two operands. If the operands are of different types, JavaScript converts the operands then applies strict comparison.
+    If both operands are objects, then JavaScript compares internal references which are equal when operands refer to the same object in memory.
+    In the below example, a and b are two objects. Even though they have the same properties with the same values, they are not the same object in memory.
+*/
+const a = [1, 2, 3];
+var b = [1, 2, 3];
+var c = "1,2,3";
+console.log("a==c >>", a == c); // true
+console.log("b==c >>", b == c); // true
+console.log("a==b >>", a == b); // false
