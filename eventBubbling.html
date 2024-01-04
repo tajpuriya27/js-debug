@@ -3,6 +3,11 @@
     when an event occurs in an element inside another element, and 
     both elements have registered a handler for that event.
 
+    With bubbling, the event is first captured and handled by the innermost 
+    element and then propagated to outer elements.
+
+    child -> parent -> grandparent -> body -> html -> document
+
  -->
 <!DOCTYPE html>
 
@@ -33,24 +38,23 @@
 
       function handleClick(event) {
         console.log(`Event triggered on: ${event.target.id}`);
-        console.log("one");
+        console.log("Chiled-clicked");
         // Optional: display additional information about the event
         // console.dir(event);
       }
 
       function handleClick1(event) {
         console.log(`Event triggered on: ${event.target.id}`);
-        console.log("two");
+        console.log("Parent-Clicked");
       }
 
       function handleMouseOver(event) {
-        // console.log(`Event triggered on: ${event.target.id}`);
-        console.log("three");
+        console.log("Mouse over on child");
       }
 
       parent.addEventListener("click", handleClick1);
+      child.addEventListener("click", handleClick);
       child.addEventListener("mouseover", handleMouseOver);
-      // child.addEventListener("click", handleClick);
     </script>
   </body>
 </html>
